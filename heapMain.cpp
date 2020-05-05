@@ -8,7 +8,7 @@ NOTES:
 MODIFICATION HISTORY:
 Author             Date               Version
 ---------------    ----------         --------------
-Conner Fissell     03-25-2020         1.0  Original version
+Conner Fissell     05-04-2020         1.0  Original version
 ----------------------------------------------------------------------------- */
 #include <iostream>
 #include <vector>
@@ -47,7 +47,7 @@ int main()
     std::make_heap(v1.begin(), v1.end());
 
     std::cout << std::endl;
-    std::cout << "Here is a heap of 100 random values:\n";
+    std::cout << "\nHere is a heap of 100 random values:\n";
     
     // Display the contents of the heap
     for (iter = v1.begin(); iter != v1.end(); iter++)
@@ -82,9 +82,6 @@ int main()
         std::cout << v1[i] << std::endl;
 
     }
-
-
-
 
     return 0;
 
