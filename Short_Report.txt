@@ -1,0 +1,10 @@
+For this homework assignment I used vectors along with the built in standard template library 
+heap functions to create and manipulate a heap. I used a random number generator to create
+100 random numbers bewtween 0 and 500 and inserted them into a vector. After that, I used
+make_heap() to make that vector a heap. I then found the mean of the vector, inserted that 
+into the vector and made it a heap again using that same make_heap() function. The instructions 
+then asked to remove the max value. To do this, I used the pop_heap() function along with the 
+pop_back() vector function to remove that top (greatest) value because when you use the pop_heap() function,
+that top value gets placed in the very end of the vector (heap). I diplayed the results to the screen while 
+also writing the results to a .txt file. The last step to this homework required using the sort_heap()
+function to reverse the order of the heap from a max heap to a non-heap range of ascending values.  

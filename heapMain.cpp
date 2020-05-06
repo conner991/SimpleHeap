@@ -33,14 +33,18 @@ int main()
     std::vector<int>::iterator iter;
 
 
-    //RNG
+    // Random number generator
     unsigned seed = time(0);
     srand(seed);
     for (int i = 0; i < RNrange; i++)
     {
-        rnHolder = (rand() % RNrange);
+        rnHolder = (rand() % 500);
         v1.push_back(rnHolder);
     }
+
+    // Open output file operator
+    std::fstream outFile;
+    outFile.open("heapResults.txt", std::ios::out);
 
 
     // Making a heap from the random values
@@ -48,14 +52,17 @@ int main()
 
     std::cout << std::endl;
     std::cout << "\nHere is a heap of 100 random values:\n";
+    outFile << "\nHere is a heap of 100 random values:\n";
     
     // Display the contents of the heap
     for (iter = v1.begin(); iter != v1.end(); iter++)
     {
-        std::cout << *iter << std::endl;
+        std::cout << *iter << " ";
+        outFile << *iter << " ";
     }
 
     std::cout << std::endl;
+    outFile << std::endl;
 
     // Adding up all the values of the heap vector
     for (int i = 0; i < v1.size(); i++)
@@ -65,11 +72,13 @@ int main()
 
     mean = temp / v1.size();
     
-    std::cout << "The mean of the heap values is: " << mean << std::endl;
+    std::cout << "\nThe mean of the heap values is: " << mean << std::endl;
     std::cout << "Inserting mean value into heap and deleting max value...\n\n";
+    outFile << "\nThe mean of the heap values is: " << mean << std::endl;
+    outFile << "Inserting mean value into heap and deleting max value...\n\n";
 
+    // Add mean to vector, then remake the heap 
     v1.push_back(mean);
-
     push_heap(v1.begin(), v1.end());
     pop_heap(v1.begin(), v1.end());
     v1.pop_back();
@@ -79,9 +88,25 @@ int main()
     // Display new heap
     for (int i = 0; i < v1.size(); i++)
     {
-        std::cout << v1[i] << std::endl;
+        std::cout << v1[i] << " ";
+        outFile << v1[i] << " ";
+    }
+
+    // Sorting heap into ascending order
+    std::cout << "\n\nHeap after sorting it into ascending order:\n";
+    outFile << "\n\nHeap after sorting it into ascending order:\n";
+    std::sort_heap(v1.begin(), v1. end());
+    for (int i = 0; i < v1.size(); i++)
+    {
+        std::cout << v1[i] << " ";
+        outFile << v1[i] << " ";
 
     }
+
+    std::cout << "\n\nSee heapResults.txt for output file and Short_Report.txt for the summary.\n\n";
+
+    // Close file
+    outFile.close();
 
     return 0;
 

@@ -19,3 +19,6 @@
 #	Usage: e.g. make hello
 .cpp:
 	g++ -o $* $*.cpp -std=c++11
+
+clean:
+	rm *.o heapMain
